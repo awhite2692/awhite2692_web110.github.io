@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 12 - JavaScript</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="myName">Aaron White</h1>
+        <p id="currentDate"></p>
+        
+        <p> In this assignment, I learned how JavaScript can dynamically display information on a webpage. I used JavaScript to insert my name into a heading and display the current date and time in a paragraph. I also learned that JavaScript retrieves the date and time from the computer's system clock and formats it for display based on the computer's regional settings. These techniques can be applied to my own web projects and professional environments, including online training materials and virtual instructor-led training (VILT), where displaying current or changing information can make content more useful and interactive. </p>
+
+        <h2>Extra Credit:  HTML Canvas</h2>
+
+        <canvas id="myCanvas" width="400" height="100" style="border:1px solid #000000;">
+            Your browser does not support the HTML canvas tag.
+        </canvas>
+
+        <h3>Canvas Shapes</h3>
+
+        <canvas id="shapeCanvas" width="400" height="200" style="border:1px solid #000000;">
+            Your browser does not support the HTML canvas tag.
+        </canvas>
+
+        <script>
+            document.getElementById("myName").innerHTML = "Aaron White";
+
+var now = new Date();
+document.getElementById("currentDate").innerHTML = "Current Date: " + now.toLocaleDateString() + " | Current Time: " + now.toLocaleTimeString();
+
+// Write name on first canvas
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+context.font = "24px Arial";
+context.fillStyle = "#000000";
+context.fillText("Aaron White", 20, 55);
+
+// Draw shapes on second canvas
+var shapeCanvas = document.getElementById("shapeCanvas");
+var shapeContext = shapeCanvas.getContext("2d");
+
+// Draw a rectangle
+shapeContext.fillStyle = "#003366";
+shapeContext.fillRect(20, 20, 100, 60);
+
+// Draw a circle
+shapeContext.beginPath();
+shapeContext.arc(180, 50, 30, 0, 2 * Math.PI);
+shapeContext.stroke();
+
+// Draw a line
+shapeContext.beginPath();
+shapeContext.moveTo(250, 20);
+shapeContext.lineTo(350, 80);
+shapeContext.stroke();
+        </script>
+
+    </body>
+</html>
