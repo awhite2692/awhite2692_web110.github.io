@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 13 - SQL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Assignment 13 - SQL</h1>
+    <h2>Single-Table SELECT Statements</h2>
+    <p>The following SQL statements were used to retrieve information from a single database table, the Customers table.</p>
+    <ul>
+    <li>SELECT * FROM Customers;</li>
+    <li>SELECT CustomerID, CustomerName FROM Customers;</li>
+    <li>SELECT CustomerName, Address, City, PostalCode FROM Customers WHERE Country = 'UK';</li>
+    <li>SELECT ContactName, CustomerName FROM Customers ORDER BY ContactName;</li>
+    <li>SELECT Count (*) FROM Customers;</li>
+    <li>SELECT Country, COUNT(*) FROM Customers GROUP BY Country;</li>
+    <li>SELECT Country, COUNT(*) AS CustomerCount FROM Customers GROUP BY Country ORDER BY CustomerCount DESC, Country ASC;</li>
+    <li>SELECT Country, COUNT(*) AS CustomerCount FROM Customers GROUP BY Country HAVING COUNT(*) > 10 ORDER BY CustomerCount DESC, Country ASC;</li>
+    </ul>
+    <h2>Multiple-Table SELECT Statements</h2>
+    <p>The following SQL statements combine information from multiple database tables using JOIN operations.</p>
+    <ul>
+    <li>SELECT Customers.CustomerName, Orders.OrderID, Orders.OrderDate FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID;</li>
+    <li>SELECT Customers.CustomerName, Orders.OrderID AS 'Order Number', Orders.OrderDate FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID;</li>
+    <li>SELECT Customers.CustomerName, Orders.OrderID AS 'Order Number', Orders.OrderDate FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID ORDER BY Customers.CustomerName, Orders.OrderID;</li>
+    <li>SELECT Orders.OrderID AS 'Order Number', Orders.OrderDate, Products.ProductName, OrderDetails.Quantity FROM Orders INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID;</li>
+    <li>SELECT Orders.OrderID AS 'Order Number', Orders.OrderDate, Products.ProductName, OrderDetails.Quantity, OrderDetails.Quantity * Products.Price AS ExtendedPrice FROM Orders INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID WHERE Orders.CustomerID = 2;</li>
+    <li>SELECT Customers.CustomerName, Orders.OrderID AS 'Order Number', Orders.OrderDate, Products.ProductName, OrderDetails.Quantity, OrderDetails.Quantity * Products.Price AS ExtendedPrice FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID WHERE Customers.CustomerName = 'Around the Horn';</li>
+    </ul>
+    <h2>INSERT, UPDATE, and DELETE Statements</h2>
+    <p>The following SQL statements demonstrate how to add, modify, and remove records in a database.</p>
+    <ul>
+    <li>INSERT INTO Shippers (ShipperID, ShipperName, Phone) VALUES (4, 'On Time Delivery', '(503) 555 0123');</li>
+    <li>UPDATE Products SET Price = Price + 1;</li>
+    <li>UPDATE Products SET Price = Price - 1;</li>
+    <li>UPDATE Shippers SET ShipperName = 'On-Time Delivery' WHERE ShipperID = 4;</li>
+    <li>DELETE FROM Shippers WHERE ShipperID = 4;</li>
+    </ul>
+    <h2>What I Learned</h2>
+    <p>Through these activities, I learned how SQL can retrieve, filter, sort, and summarize information stored in database tables. I also learned how to combine information from multiple tables and how to add, update, and delete records. I can apply this knowledge in future learning technology and virtual training environments to better understand how systems organize course, instructor, and participant information and generate reports.</p>
+</body>
+</html>
